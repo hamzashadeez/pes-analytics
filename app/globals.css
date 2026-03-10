@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #050d1a;
+  --bg-secondary: #0f172a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2436;
+  --border-subtle: rgba(16, 185, 129, 0.12);
+  --border-glow: rgba(16, 185, 129, 0.4);
+  --neon-green: #10b981;
+  --neon-cyan: #06b6d4;
+  --neon-lime: #84cc16;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(6, 182, 212, 0.03) 0%, transparent 50%);
+}
+
+.font-display {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Neon glow effects */
+.glow-green {
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+}
+
+.glow-border {
+  border-color: var(--neon-green);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.15), inset 0 0 15px rgba(16, 185, 129, 0.03);
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 4px 24px rgba(16, 185, 129, 0.08);
+}
+
+/* Upload zone */
+.upload-zone {
+  border: 2px dashed rgba(16, 185, 129, 0.3);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.02), rgba(6, 182, 212, 0.02));
+}
+
+.upload-zone.dragging {
+  border-color: var(--neon-green);
+  background: rgba(16, 185, 129, 0.06);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+}
+
+/* Table styles */
+.match-table th {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.match-table tr {
+  border-bottom: 1px solid rgba(16, 185, 129, 0.06);
+  transition: background 0.15s;
+}
+
+.match-table tr:hover {
+  background: rgba(16, 185, 129, 0.04);
+}
+
+/* Stat number */
+.stat-number {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Result badges */
+.badge-W { color: #10b981; background: rgba(16, 185, 129, 0.12); }
+.badge-D { color: #f59e0b; background: rgba(245, 158, 11, 0.12); }
+.badge-L { color: #ef4444; background: rgba(239, 68, 68, 0.12); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: rgba(16, 185, 129, 0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(16, 185, 129, 0.5); }
+
+/* Animations */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-fadeslide {
+  animation: fadeSlideUp 0.4s ease-out forwards;
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, var(--bg-card) 25%, rgba(16, 185, 129, 0.05) 50%, var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background: rgba(5, 13, 26, 0.85);
+}
+
+/* Neon line accent */
+.neon-line {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: white;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+.btn-secondary {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #10b981;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-radius: 8px;
+  color: var(--text-primary);
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  width: 100%;
+  transition: border-color 0.2s;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.08);
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: #475569 !important;
+  font-size: 11px !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #111827 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  border-radius: 8px !important;
+}
