@@ -1,7 +1,7 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'PES 2025 Analytics',
+  title: 'PES 2025 Analytics built by hamza shadeez',
   description: 'Track and analyze your PES 2025 match performance built by hamza shadeez',
 };
 
