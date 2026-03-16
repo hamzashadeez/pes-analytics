@@ -61,7 +61,7 @@ export async function GET() {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
+// the function that handles the POST request to create a new match record. It connects to the database, parses the incoming JSON data, creates a new Match document, saves it to the database, and returns the created match in the response. If any error occurs during this process, it catches the error and returns an appropriate error message with a 500 status code.
 export async function POST(request) {
   try {
     await connectDB();
