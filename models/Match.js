@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+//  this is the schema for the match data, it includes fields for date, teams, goals, shots, possession, rating, and result. The result is auto-calculated based on the goals scored by each team before saving the document to the database.
 const MatchSchema = new mongoose.Schema(
   {
     date: {
